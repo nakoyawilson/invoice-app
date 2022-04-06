@@ -1,3 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@500;700&display=swap");
+
+:root {
+  --font: "Spartan", sans-serif;
+  --purple1: hsl(252, 94%, 67%);
+  --purple2: hsl(252, 100%, 73%);
+  --dark-purple1: hsl(233, 31%, 17%);
+  --dark-purple2: hsl(233, 30%, 21%);
+  --dark-purple3: hsl(228, 29%, 7%);
+  --dark-purple4: hsl(233, 30%, 11%);
+  --dark-purple5: hsl(231, 20%, 27%);
+  --light-purple1: hsl(231, 73%, 93%);
+  --gray1: hsl(231, 20%, 61%);
+  --grayish-purple1: hsl(231, 37%, 63%);
+  --off-white1: hsl(240, 27%, 98%);
+  --soft-red1: hsl(0, 100%, 80%);
+  --red1: hsl(0, 80%, 63%);
+}
+
+.dark-mode {
+  --bg-main: var(--dark-purple4);
+  --bg-header: var(--dark-purple1);
+}
+
+.light-mode {
+  --bg-main: var(--off-white1);
+  --bg-header: var(--dark-purple5);
+}
+
 /* CSS Reset */
 
 *,
@@ -9,6 +38,21 @@
 }
 
 /* General Styles */
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--bg-main);
+  font-family: var(--font);
+}
+
+button {
+  background: none;
+  border: 1px solid transparent;
+  font: inherit;
+}
 
 img,
 svg {

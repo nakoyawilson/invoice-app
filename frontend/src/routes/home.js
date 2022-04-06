@@ -1,7 +1,9 @@
 import { useOutletContext } from "react-router-dom";
 
 const Home = () => {
-  const [invoiceCount] = useOutletContext();
+  const [invoices, invoiceCount, increaseInvoiceCount, decreaseInvoiceCount] =
+    useOutletContext();
+
   return (
     <>
       <h1>Invoices</h1>

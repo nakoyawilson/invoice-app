@@ -10,7 +10,7 @@ const Header = ({ theme, toggleDarkmode }) => {
       <div className="logo-wrapper">
         <img src={logo} alt="Invoice app logo" className="logo" />
       </div>
-      <button onClick={toggleDarkmode}>
+      <button onClick={toggleDarkmode} className="toggle-btn">
         <img src={theme === "light-mode" ? moonIcon : sunIcon} alt="" />
       </button>
       <div className="avatar-wrapper">

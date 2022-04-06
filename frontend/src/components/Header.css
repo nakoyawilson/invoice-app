@@ -1,12 +1,14 @@
 .header {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  background-color: var(--bg-header);
 }
 
 .logo-wrapper {
   width: 72px;
   height: 72px;
-  background: #7c5dfa;
+  background: var(--purple1);
   border-radius: 0px 20px 20px 0px;
   display: flex;
   justify-content: center;
@@ -18,7 +20,7 @@
   content: "";
   width: 72px;
   height: 36px;
-  background: #9277ff;
+  background: var(--purple2);
   border-radius: 20px 0px 20px 0px;
   position: absolute;
   bottom: 0;
@@ -27,6 +29,10 @@
 
 .logo {
   z-index: 1;
+}
+
+.toggle-btn {
+  margin: 0 2.4rem 0 auto;
 }
 
 .avatar-wrapper {
