@@ -1,4 +1,4 @@
-const invoice = () => {
+const Invoice = () => {
   return (
     <>
       Go back Status {/* Add status */}
@@ -35,4 +35,4 @@ const invoice = () => {
   );
 };
 
-export default invoice;
+export default Invoice;
