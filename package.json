@@ -1,0 +1,32 @@
+{
+  "name": "invoice-app",
+  "version": "1.0.0",
+  "description": "MERN invoice app",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node backend/server",
+    "server": "nodemon backend/server",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nakoyawilson/invoice-app.git"
+  },
+  "keywords": [],
+  "author": "Nakoya Wilson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nakoyawilson/invoice-app/issues"
+  },
+  "homepage": "https://github.com/nakoyawilson/invoice-app#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "concurrently": "^7.1.0",
+    "nodemon": "^2.0.15"
+  }
+}

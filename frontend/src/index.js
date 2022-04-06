@@ -19,6 +19,5 @@ root.render(
         </Route>
       </Routes>
     </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById("root")
+  </React.StrictMode>
 );
