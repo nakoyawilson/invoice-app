@@ -1,9 +1,11 @@
 import { useOutletContext } from "react-router-dom";
 import InvoiceSummary from "../components/InvoiceSummary";
+import plusIcon from "../assets/icon-plus.svg";
 import "./home.css";
 
 const Home = () => {
   const [invoices, invoiceCount] = useOutletContext();
+  const breakPoint = 376;
 
   const displayInvoiceSummary = (invoice) => {
     return (
@@ -26,14 +28,20 @@ const Home = () => {
           <h2 className="invoice-count">
             {invoiceCount === 0
               ? "No invoices"
-              : invoiceCount === 1
+              : invoiceCount === 1 && window.innerWidth > breakPoint
               ? "There is 1 invoice"
-              : `There are ${invoiceCount} total invoices`}
+              : invoiceCount === 1
+              ? "1 invoice"
+              : invoiceCount > 1 && window.innerWidth > breakPoint
+              ? `There are ${invoiceCount} total invoices`
+              : `${invoiceCount} invoices`}
           </h2>
         </div>
-        <div>
+        <div className="actions-container">
           <form>
-            <label htmlFor="invoice-status">Filter by status</label>
+            <label htmlFor="invoice-status" className="visually-hidden">
+              Filter by status
+            </label>
             <select name="status" id="invoice-status">
               <option value="">Filter by status</option>
               <option value="draft">Draft</option>
@@ -41,7 +49,13 @@ const Home = () => {
               <option value="paid">Paid</option>
             </select>
           </form>
-          <button>New Invoice</button>
+          <button className="add-new-invoice">
+            <span className="plus-icon-wrapper">
+              <img src={plusIcon} alt="" />
+            </span>
+            New
+            {window.innerWidth > breakPoint && " Invoice"}
+          </button>
         </div>
       </div>
       {!invoiceCount && (
@@ -49,8 +63,10 @@ const Home = () => {
           <h2 className="subheading">There is nothing here</h2>
           <p className="paragraph">
             Create an invoice by clicking the{" "}
-            <span className="emphasized-text">New Invoice</span> button and get
-            started
+            <span className="emphasized-text">
+              New{window.innerWidth > breakPoint && " Invoice"}
+            </span>{" "}
+            button and get started
           </p>
         </>
       )}

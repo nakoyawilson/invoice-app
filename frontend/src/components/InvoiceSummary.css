@@ -45,6 +45,7 @@
   grid-column: 2 / 3;
   grid-row: 1 / 2;
   color: var(--text-tertiary);
+  text-align: right;
 }
 
 .payment-status {
@@ -57,6 +58,7 @@
   justify-content: center;
   align-items: center;
   font-weight: 700;
+  justify-self: end;
 }
 
 .payment-status.paid {
