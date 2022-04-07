@@ -62,3 +62,12 @@
 .emphasized-text {
   font-weight: 700;
 }
+
+/* Invoices */
+.invoices-container {
+  display: flex;
+  flex-direction: column;
+  width: min(87.2%, 32.7rem);
+  margin: 3.2rem auto 10.5rem;
+  gap: 1.6rem;
+}

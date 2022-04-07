@@ -13,24 +13,17 @@ const App = () => {
     setDarkmodeOn(!darkmodeOn);
   };
 
-  const increaseInvoiceCount = () => {
-    setInvoiceCount(invoiceCount + 1);
-  };
-
-  const decreaseInvoiceCount = () => {
-    setInvoiceCount(invoiceCount - 1);
-  };
-
   useEffect(() => {
     document.body.classList = darkmodeOn ? "dark-mode" : "light-mode";
   }, [darkmodeOn]);
 
+  const fetchInvoices = async () => {
+    const { data } = await axios.get("/invoices");
+    setInvoices(data);
+    setInvoiceCount(data.length);
+  };
+
   useEffect(() => {
-    const fetchInvoices = async () => {
-      const { data } = await axios.get("/invoices");
-      setInvoices(data);
-      setInvoiceCount(data.length);
-    };
     fetchInvoices();
   }, []);
 
@@ -40,14 +33,7 @@ const App = () => {
         theme={darkmodeOn ? "dark-mode" : "light-mode"}
         toggleDarkmode={toggleDarkmode}
       />
-      <Outlet
-        context={[
-          invoices,
-          invoiceCount,
-          increaseInvoiceCount,
-          decreaseInvoiceCount,
-        ]}
-      />
+      <Outlet context={[invoices, invoiceCount]} />
     </>
   );
 };

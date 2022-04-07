@@ -1,9 +1,22 @@
 import { useOutletContext } from "react-router-dom";
+import InvoiceSummary from "../components/InvoiceSummary";
 import "./home.css";
 
 const Home = () => {
-  const [invoices, invoiceCount, increaseInvoiceCount, decreaseInvoiceCount] =
-    useOutletContext();
+  const [invoices, invoiceCount] = useOutletContext();
+
+  const displayInvoiceSummary = (invoice) => {
+    return (
+      <InvoiceSummary
+        key={invoice._id}
+        id={invoice._id}
+        paymentDue={invoice.paymentDue}
+        total={invoice.total}
+        clientName={invoice.clientName}
+        status={invoice.status}
+      />
+    );
+  };
 
   return (
     <>
@@ -40,6 +53,11 @@ const Home = () => {
             started
           </p>
         </>
+      )}
+      {invoices && (
+        <div className="invoices-container">
+          {invoices.map(displayInvoiceSummary)}
+        </div>
       )}
       {/* Create new invoice form */}
       {/* Go back New Invoice Bill From Street Address City Post Code Country Bill

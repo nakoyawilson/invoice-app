@@ -10,27 +10,45 @@
   --dark-purple3: hsl(228, 29%, 7%);
   --dark-purple4: hsl(233, 30%, 11%);
   --dark-purple5: hsl(231, 20%, 27%);
+  --dark-purple5-transparent: hsla(231, 20%, 27%, 0.06);
   --light-purple1: hsl(231, 73%, 93%);
+  --light-purple1-transparent: hsla(231, 73%, 93%, 0.06);
+  --light-purple2: hsl(231, 75%, 93%);
   --gray1: hsl(231, 20%, 61%);
+  --gray2: hsl(231, 23%, 61%);
   --grayish-purple1: hsl(231, 37%, 63%);
   --off-white1: hsl(240, 27%, 98%);
   --soft-red1: hsl(0, 100%, 80%);
   --red1: hsl(0, 80%, 63%);
+  --orange1: hsl(34, 100%, 50%);
+  --orange1-transparent: hsla(34, 100%, 50%, 0.06);
+  --green1: hsl(160, 67%, 52%);
+  --green1-transparent: hsla(160, 67%, 52%, 0.06);
   --white: hsl(0, 0%, 100%);
 }
 
 .dark-mode {
   --bg-main: var(--dark-purple4);
   --bg-header: var(--dark-purple1);
+  --bg-secondary: var(--dark-purple1);
   --text-primary: var(--white);
   --text-secondary: var(--light-purple1);
+  --text-tertiary: var(--white);
+  --text-tertiary-alt: var(--light-purple2);
+  --bg-draft: var(--light-purple1);
+  --text-draft: var(--light-purple1-transparent);
 }
 
 .light-mode {
   --bg-main: var(--off-white1);
   --bg-header: var(--dark-purple5);
+  --bg-secondary: var(--white);
   --text-primary: var(--black1);
   --text-secondary: var(--gray1);
+  --text-tertiary: var(--gray2);
+  --text-tertiary-alt: var(--gray1);
+  --bg-draft: var(--dark-purple5-transparent);
+  --text-draft: var(--dark-purple5);
 }
 
 /* CSS Reset */
@@ -63,4 +81,8 @@ button {
 img,
 svg {
   display: block;
+}
+
+ul {
+  list-style: none;
 }
