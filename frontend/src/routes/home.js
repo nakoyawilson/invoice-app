@@ -1,4 +1,5 @@
 import { useOutletContext } from "react-router-dom";
+import "./home.css";
 
 const Home = () => {
   const [invoices, invoiceCount, increaseInvoiceCount, decreaseInvoiceCount] =
@@ -6,30 +7,37 @@ const Home = () => {
 
   return (
     <>
-      <h1>Invoices</h1>
-      <p>
-        {invoiceCount === 0
-          ? "No invoices"
-          : invoiceCount === 1
-          ? "There is 1 invoice"
-          : `There are ${invoiceCount} total invoices`}
-      </p>
-      <form>
-        <label htmlFor="invoice-status">Filter by status</label>
-        <select name="status" id="invoice-status">
-          <option value="">Filter by status</option>
-          <option value="draft">Draft</option>
-          <option value="pending">Pending</option>
-          <option value="paid">Paid</option>
-        </select>
-      </form>
-      <button>New Invoice</button>
+      <div className="container">
+        <div>
+          <h1 className="main-heading">Invoices</h1>
+          <h2 className="invoice-count">
+            {invoiceCount === 0
+              ? "No invoices"
+              : invoiceCount === 1
+              ? "There is 1 invoice"
+              : `There are ${invoiceCount} total invoices`}
+          </h2>
+        </div>
+        <div>
+          <form>
+            <label htmlFor="invoice-status">Filter by status</label>
+            <select name="status" id="invoice-status">
+              <option value="">Filter by status</option>
+              <option value="draft">Draft</option>
+              <option value="pending">Pending</option>
+              <option value="paid">Paid</option>
+            </select>
+          </form>
+          <button>New Invoice</button>
+        </div>
+      </div>
       {!invoiceCount && (
         <>
-          <h2>There is nothing here</h2>
-          <p>
-            Create an invoice by clicking the <span>New Invoice</span> button
-            and get started
+          <h2 className="subheading">There is nothing here</h2>
+          <p className="paragraph">
+            Create an invoice by clicking the{" "}
+            <span className="emphasized-text">New Invoice</span> button and get
+            started
           </p>
         </>
       )}

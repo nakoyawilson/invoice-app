@@ -1,0 +1,64 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: min(87.2%, 32.7rem);
+  margin: 3.2rem auto 0;
+  color: var(--text-primary);
+}
+
+.main-heading {
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 2.2rem;
+  letter-spacing: -0.625px;
+}
+
+.invoice-count {
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  letter-spacing: -0.25px;
+  color: var(--text-secondary);
+  margin-top: 0.4rem;
+}
+
+.subheading {
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 2.2rem;
+  letter-spacing: -0.625px;
+  text-align: center;
+  margin-top: 30.3rem;
+  position: relative;
+  color: var(--text-primary);
+}
+
+.subheading::before {
+  content: "";
+  height: 16rem;
+  width: 19.3rem;
+  background-image: url("../assets/illustration-empty.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: -20rem;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+}
+
+.paragraph {
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  text-align: center;
+  letter-spacing: -0.25px;
+  color: var(--text-secondary);
+  width: min(53.6%, 20.1rem);
+  margin: 2.4rem auto 0;
+}
+
+.emphasized-text {
+  font-weight: 700;
+}

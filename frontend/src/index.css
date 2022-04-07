@@ -2,6 +2,7 @@
 
 :root {
   --font: "Spartan", sans-serif;
+  --black1: hsl(231, 28%, 7%);
   --purple1: hsl(252, 94%, 67%);
   --purple2: hsl(252, 100%, 73%);
   --dark-purple1: hsl(233, 31%, 17%);
@@ -15,16 +16,21 @@
   --off-white1: hsl(240, 27%, 98%);
   --soft-red1: hsl(0, 100%, 80%);
   --red1: hsl(0, 80%, 63%);
+  --white: hsl(0, 0%, 100%);
 }
 
 .dark-mode {
   --bg-main: var(--dark-purple4);
   --bg-header: var(--dark-purple1);
+  --text-primary: var(--white);
+  --text-secondary: var(--light-purple1);
 }
 
 .light-mode {
   --bg-main: var(--off-white1);
   --bg-header: var(--dark-purple5);
+  --text-primary: var(--black1);
+  --text-secondary: var(--gray1);
 }
 
 /* CSS Reset */
