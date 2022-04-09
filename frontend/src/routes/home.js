@@ -4,7 +4,7 @@ import plusIcon from "../assets/icon-plus.svg";
 import "./home.css";
 
 const Home = () => {
-  const [invoices, invoiceCount] = useOutletContext();
+  const [invoices, invoiceCount, isPending] = useOutletContext();
   const breakPoint = 376;
 
   const displayInvoiceSummary = (invoice) => {
@@ -22,43 +22,46 @@ const Home = () => {
 
   return (
     <>
-      <div className="container">
-        <div>
-          <h1 className="main-heading">Invoices</h1>
-          <h2 className="invoice-count">
-            {invoiceCount === 0
-              ? "No invoices"
-              : invoiceCount === 1 && window.innerWidth > breakPoint
-              ? "There is 1 invoice"
-              : invoiceCount === 1
-              ? "1 invoice"
-              : invoiceCount > 1 && window.innerWidth > breakPoint
-              ? `There are ${invoiceCount} total invoices`
-              : `${invoiceCount} invoices`}
-          </h2>
+      {isPending && <p className="paragraph">Loading invoices...</p>}
+      {invoiceCount !== null && (
+        <div className="container">
+          <div>
+            <h1 className="main-heading">Invoices</h1>
+            <h2 className="invoice-count">
+              {invoiceCount === 0
+                ? "No invoices"
+                : invoiceCount === 1 && window.innerWidth > breakPoint
+                ? "There is 1 invoice"
+                : invoiceCount === 1
+                ? "1 invoice"
+                : invoiceCount > 1 && window.innerWidth > breakPoint
+                ? `There are ${invoiceCount} total invoices`
+                : `${invoiceCount} invoices`}
+            </h2>
+          </div>
+          <div className="actions-container">
+            <form>
+              <label htmlFor="invoice-status" className="visually-hidden">
+                Filter by status
+              </label>
+              <select name="status" id="invoice-status">
+                <option value="">Filter by status</option>
+                <option value="draft">Draft</option>
+                <option value="pending">Pending</option>
+                <option value="paid">Paid</option>
+              </select>
+            </form>
+            <button className="add-new-invoice">
+              <span className="plus-icon-wrapper">
+                <img src={plusIcon} alt="" />
+              </span>
+              New
+              {window.innerWidth > breakPoint && " Invoice"}
+            </button>
+          </div>
         </div>
-        <div className="actions-container">
-          <form>
-            <label htmlFor="invoice-status" className="visually-hidden">
-              Filter by status
-            </label>
-            <select name="status" id="invoice-status">
-              <option value="">Filter by status</option>
-              <option value="draft">Draft</option>
-              <option value="pending">Pending</option>
-              <option value="paid">Paid</option>
-            </select>
-          </form>
-          <button className="add-new-invoice">
-            <span className="plus-icon-wrapper">
-              <img src={plusIcon} alt="" />
-            </span>
-            New
-            {window.innerWidth > breakPoint && " Invoice"}
-          </button>
-        </div>
-      </div>
-      {!invoiceCount && (
+      )}
+      {invoiceCount === 0 && (
         <>
           <h2 className="subheading">There is nothing here</h2>
           <p className="paragraph">

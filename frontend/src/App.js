@@ -6,8 +6,9 @@ import "./App.css";
 
 const App = () => {
   const [darkmodeOn, setDarkmodeOn] = useState(false);
-  const [invoices, setInvoices] = useState([]);
-  const [invoiceCount, setInvoiceCount] = useState(0);
+  const [invoices, setInvoices] = useState(null);
+  const [invoiceCount, setInvoiceCount] = useState(null);
+  const [isPending, setIsPending] = useState(false);
 
   const toggleDarkmode = () => {
     setDarkmodeOn(!darkmodeOn);
@@ -18,9 +19,11 @@ const App = () => {
   }, [darkmodeOn]);
 
   const fetchInvoices = async () => {
+    setIsPending(true);
     const { data } = await axios.get("/invoices");
     setInvoices(data);
     setInvoiceCount(data.length);
+    setIsPending(false);
   };
 
   useEffect(() => {
@@ -33,7 +36,7 @@ const App = () => {
         theme={darkmodeOn ? "dark-mode" : "light-mode"}
         toggleDarkmode={toggleDarkmode}
       />
-      <Outlet context={[invoices, invoiceCount]} />
+      <Outlet context={[invoices, invoiceCount, isPending]} />
     </>
   );
 };
